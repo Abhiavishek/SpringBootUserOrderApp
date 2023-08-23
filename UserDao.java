@@ -1,0 +1,44 @@
+package org.jsp.springBootUserFoodOrder.dao;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.jsp.springBootUserFoodOrder.dto.User;
+import org.jsp.springBootUserFoodOrder.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class UserDao {
+	@Autowired
+	private UserRepository repository;
+	
+	public User saveUser(User u) {
+		return repository.save(u);
+	}
+	
+	public User updateUser(User u) {
+		return repository.save(u);
+	}
+	
+	public Optional<User> findById(int id) {
+		return repository.findById(id);
+	}
+	
+	public List<User> findAll(){
+		return repository.findAll();
+	}
+	
+	public void deleteUser(int id) {
+	     repository.deleteById(id);
+	}
+	
+	public Optional<User> verifyUser(long phone, String password) {
+		return repository.verifyUser(phone, password);
+	}
+	
+	public Optional<User> verifyUser(String email, String password) {
+		return repository.verifyUser(email, password);
+	}
+
+}
